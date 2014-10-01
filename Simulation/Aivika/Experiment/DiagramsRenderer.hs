@@ -41,4 +41,4 @@ instance ChartRenderer DiagramsRenderer where
   renderableFileExtension (DiagramsRenderer SVG_EMBEDDED _)  = ".svg"
   
   renderChart (DiagramsRenderer format fonts) (width, height) =
-    renderableToFile (FileOptions (fromIntegral width, fromIntegral height) format fonts)
+    flip $ renderableToFile (FileOptions (fromIntegral width, fromIntegral height) format fonts)
