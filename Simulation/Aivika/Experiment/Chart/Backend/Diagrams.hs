@@ -34,16 +34,7 @@ data DiagramsRenderer =
                      -- ^ It contains the custom fonts.
                    }
 
--- | The class of the Diagrams-based renderers is a sub-class of the charting renderers.
-class WebPageCharting r => DiagramsRendering r
-
-instance ExperimentRendering DiagramsRenderer WebPageWriter where
-
-  renderExperiment e r = renderExperiment e WebPageRenderer
-
-instance WebPageRendering DiagramsRenderer
-
-instance WebPageCharting DiagramsRenderer where
+instance ChartRendering DiagramsRenderer where
 
   renderableChartExtension (DiagramsRenderer EPS _) = ".eps"
   renderableChartExtension (DiagramsRenderer SVG _) = ".svg"
@@ -51,5 +42,3 @@ instance WebPageCharting DiagramsRenderer where
   
   renderChart (DiagramsRenderer format fonts) (width, height) =
     renderableToFile (FileOptions (fromIntegral width, fromIntegral height) format fonts)
-
-instance DiagramsRendering DiagramsRenderer
