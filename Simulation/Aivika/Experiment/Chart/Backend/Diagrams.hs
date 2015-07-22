@@ -7,7 +7,7 @@
 -- License    : BSD3
 -- Maintainer : David Sorokin <david.sorokin@gmail.com>
 -- Stability  : experimental
--- Tested with: GHC 7.8.3
+-- Tested with: GHC 7.10.1
 --
 -- This module defines a renderer that uses the Chart-diagrams library
 -- for rendering charts within simulation, i.e. without using Cairo,
@@ -30,7 +30,7 @@ import Simulation.Aivika.Experiment.Chart
 data DiagramsRenderer =
   DiagramsRenderer { rendererFileFormat :: FileFormat,
                      -- ^ It returns the file format used for saving the image.
-                     rendererCustomFonts :: Map (String, FontSlant, FontWeight) FilePath
+                     rendererCustomFonts :: IO (FontSelector Double)
                      -- ^ It contains the custom fonts.
                    }
 
