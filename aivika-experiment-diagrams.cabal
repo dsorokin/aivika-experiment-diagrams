@@ -31,7 +31,7 @@ library
                      lens >= 3.9,
                      Chart >= 1.5,
                      Chart-diagrams >= 1.5,
-                     aivika-experiment >= 5.0,
+                     aivika-experiment >= 5.1,
                      aivika-experiment-chart >= 5.1
 
     extensions:      MultiParamTypeClasses
